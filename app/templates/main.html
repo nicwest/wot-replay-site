@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}"/>
+    <script src="{{  url_for('static', filename='js/jquery-2.0.3.min.js') }}"></script>
+
+
+</head>
+<body>
+
+<div id="layout">
+
+    <div id="menu">
+            {%  if g.user %}
+            <ul>
+
+                <li><a href="{{ url_for("logout") }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+            </ul>
+            {% else  %}
+                <ul>
+                <li><a href="{{ url_for("login") }}"><i class="fa fa-sign-in fa-fw"></i> Login</a></li>
+            </ul>
+            {% endif %}
+    </div>
+
+    <div id="main">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+
