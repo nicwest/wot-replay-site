@@ -9,10 +9,16 @@ sqlalchemy-migrate
 flask-whooshalchemy
 flask-wtf
 
+configs
+-------
+config-sample.py should be copied and renamed config.py.
+this houses all our useful data like db info and application keys, and should probably not be made public.
+gitignore should handle this just make sure your config.py has all the same fields as config-sample.py when you update.
+
 WarGaming application Keys
 --------------------------
-WG require application keys on all severs to acces api info:
-https://[server].wargaming.net/developers/
+WG require application keys on all severs to access api info:
+https://[server].wargaming.net/developers/ [WHERE server = EU|NA|RU|KR|ASIA]
 
 DB stuff
 --------
