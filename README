@@ -1,1 +1,34 @@
-This file was created by PyCharm 2.7.3 for binding GitHub repository
+requirements
+------------
+python 2.7
+flask
+sqlalchemy
+flask-openid
+flask-sqlalchemy
+sqlalchemy-migrate
+flask-whooshalchemy
+flask-wtf
+
+WarGaming application Keys
+--------------------------
+WG require application keys on all severs to acces api info:
+https://[server].wargaming.net/developers/
+
+DB stuff
+--------
+build a mysql table somewhere, enter hosts/username/password/tablename into config.py
+run db_create.py once at the start.
+run db_upgrade.py (not tested this, but should be fine)
+if you make changes to models or add models then run db_migrate.py this should update your database and make a migration script for others (make sure you commit this new migration)
+if someone else has made changes and hopefully provided a working migration just run db_upgrade.py and it should adjust your DB to current version.
+if something goes horribly wrong then you can do full reset by dropping the all tables and running db_create.py again. (lets try and avoid this)
+not sure how this will be handled by merges but we will cross that bridge when we come to it :D
+Miguel's advice is not to rename tables/columns but rather to delete/add them, although I have not had any problems so far.
+
+Test stuff
+----------
+flask runs a built in server for testing, just run run.py and visit the link printed to access the site, debugging is turned on.
+all other tests are in the tests folder, this is mainly for testing out wotreplays.py and wotapi.py, but all other tests welcome so long as they are not retarded :D
+media and temp folder has gitignore so none of that stuff should make it the repo
+
+
