@@ -109,8 +109,8 @@ class ReplayMeta(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), index=True)
     value = db.Column(db.Text)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    replay_id = db.Column(db.Integer, db.ForeignKey('replay.id'))
 
 
     def __repr__(self):
-        return '<UserMeta %i:%s>' % (self.user_id, self.name)
+        return '<ReplayMeta %i:%s>' % (self.replay_id, self.name)
